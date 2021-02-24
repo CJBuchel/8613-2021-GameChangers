@@ -5,6 +5,11 @@
 // Robot Logic (runs when robot is on regardless of below functions)
 void Robot::RobotInit() {
 	// init controllers and motors in here
+	leftF = new rev::CANSparkMax(0, rev::CANSparkMax::MotorType::kBrushed);
+	leftB = new rev::CANSparkMax(1, rev::CANSparkMax::MotorType::kBrushed);
+	rightF = new rev::CANSparkMax(2, rev::CANSparkMax::MotorType::kBrushed);
+	rightB = new rev::CANSparkMax(3, rev::CANSparkMax::MotorType::kBrushed);
+
 }
 
 void Robot::RobotPeriodic() {
@@ -25,6 +30,12 @@ void Robot::TeleopInit() {
 }
 void Robot::TeleopPeriodic() {
 	// Looping code for teleop. (Press button A finds Tom and shoots a ball into his face?)
+
+	std::cout << "Hello world. From robot!!" << std::endl;
+	leftF->Set(0.2);
+	leftB->Set(0.2);
+	rightF->Set(-0.2);
+	rightB->Set(-0.2);
 }
 
 // Test Logic 
